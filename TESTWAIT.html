@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Игра с кнопкой</title>
+<style>
+  body {
+    text-align: center;
+    padding-top: 50px;
+  }
+  #scoreButton {
+    padding: 20px;
+    font-size: 24px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  #score {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<button id="scoreButton">Нажми меня</button>
+<div id="score">Очки: 0</div>
+<div id="level">Уровень: 1</div>
+
+<script>
+  var score = 0;
+  var level = 1;
+  document.getElementById('scoreButton').onclick = function() {
+    score++;
+    document.getElementById('score').textContent = 'Очки: ' + score;
+    // Простая система уровней: каждые 10 очков повышают уровень
+    if (score % 10 === 0) {
+      level++;
+      document.getElementById('level').textContent = 'Уровень: ' + level;
+    }
+  };
+</script>
+
+</body>
+</html>
